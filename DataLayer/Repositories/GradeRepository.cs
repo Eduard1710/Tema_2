@@ -1,4 +1,6 @@
-﻿using DataLayer.Entities;
+﻿using DataLayer.Dtos;
+using DataLayer.Entities;
+using DataLayer.Mapping;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,9 +15,9 @@ namespace DataLayer.Repositories
         {
         }
 
-        public List<Grade> GetStudentGrades(int studentId)
+        public List<GradeDto> GetStudentGrades(int studentId)
         {
-            return _dbContext.Grades.Where(g => g.StudentId == studentId).ToList();
+            return _dbContext.Grades.Where(g => g.StudentId == studentId).ToList().ToGradeDtos();
         }
 
     }

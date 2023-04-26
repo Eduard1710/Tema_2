@@ -1,5 +1,6 @@
 ﻿using Core.Dtos;
 using DataLayer;
+using DataLayer.Dtos;
 using DataLayer.Entities;
 using DataLayer.Repositories;
 using System;
@@ -18,7 +19,7 @@ namespace Core.Services
             this.unitOfWork = unitOfWork;
         }
 
-        public List<Grade> GetStudentGrades(int studentId)
+        public List<DataLayer.Dtos.GradeDto> GetStudentGrades(int studentId)
         {
             return unitOfWork.Grades.GetStudentGrades(studentId);
         }
