@@ -9,6 +9,7 @@ namespace Project.Controllers
 {
     [ApiController]
     [Route("api/grades")]
+    [Authorize]
     public class GradeController : ControllerBase
     {
         private GradeService gradeService { get; set; }
@@ -20,6 +21,7 @@ namespace Project.Controllers
             this.userService = userService;
         }
         [HttpPost("/add-grade")]
+        [Authorize(Roles = "Teacher")]
         public IActionResult AddGrade(GradeAddDto payload)
         {
             var result = gradeService.AddGrade(payload);
@@ -33,7 +35,6 @@ namespace Project.Controllers
         }
 
         [HttpGet("/get-grades")]
-        [Authorize]
         public IActionResult UserGrades()
         {
             ClaimsPrincipal user = User;
