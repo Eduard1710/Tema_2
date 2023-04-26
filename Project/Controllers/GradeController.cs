@@ -20,7 +20,7 @@ namespace Project.Controllers
             this.gradeService = gradeService;
             this.userService = userService;
         }
-        [HttpPost("/add-grade")]
+        [HttpPost("add-grade")]
         [Authorize(Roles = "Teacher")]
         public IActionResult AddGrade(GradeAddDto payload)
         {
@@ -34,7 +34,7 @@ namespace Project.Controllers
             return Ok(result);
         }
 
-        [HttpGet("/get-grades")]
+        [HttpGet("get-grades")]
         public IActionResult UserGrades()
         {
             ClaimsPrincipal user = User;

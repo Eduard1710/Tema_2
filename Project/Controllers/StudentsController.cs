@@ -22,7 +22,7 @@ namespace Project.Controllers
             this.studentService = studentService;
         }
 
-        [HttpGet("/get-all")]
+        [HttpGet("get-all")]
         [Authorize(Roles = "Student")]
         public ActionResult<List<Student>> GetAll()
         {
@@ -31,7 +31,7 @@ namespace Project.Controllers
             return Ok(results);
         }
 
-        [HttpGet("/get/{studentId}")]
+        [HttpGet("get/{studentId}")]
         [Authorize(Roles = "Student")]
         public ActionResult<Student> GetById(int studentId)
         {
